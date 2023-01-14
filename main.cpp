@@ -6,17 +6,14 @@ int main()
 {
     fstream file;
     string text;
-    file.open("file.txt", ios::in);
+    file.open("file.txt", ios::out);
     if (!file.is_open())
     {
         perror("Log: ");
     }
     else
     {
-        while (getline(file, text))
-        {
-            cout << text << endl;
-        }
+        get_s()
         file.close();
     }
     return 0;
