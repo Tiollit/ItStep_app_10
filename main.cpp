@@ -13,7 +13,7 @@ int main()
     }
     else
     {
-        get_s()
+        gets_s("file.txt");
         file.close();
     }
     return 0;
