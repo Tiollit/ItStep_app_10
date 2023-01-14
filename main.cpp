@@ -1,3 +1,4 @@
+#define _CRT_SECURE_NO_WARNINGS
 #include <iostream>
 #include <fstream>
 #include <string>
@@ -7,8 +8,11 @@ using namespace std;
 
 int main()
 {
-    ofstream file;
-    string inf;
+    fstream file;
+    char inf[256];
+    string text;
+    const char *S = "!?.,;/*-+\n\t";
+    char *word = 0;
     cout << "Insert Text to a File" << endl;
     gets_s(inf);
     file.open("file.txt", ios::out);
@@ -18,8 +22,33 @@ int main()
     }
     else
     {
-        file << inf << endl;        
+        file << inf << endl;
+        file.close();
     }
 
+    fstream file2;    
+    file.open("file.txt", ios::in);
+    file2.open("file2.txt", ios::out);
+    if (!file.is_open())
+    {
+        perror("Log: ");
+    }
+    else
+    {
+        while (getline(file, text))
+        {
+            word = strtok((char*)text.c_str(), S);
+            while (word)
+            {
+                if (strlen(word) > 7)
+                {
+                    file2 << word << " ";
+                }
+                word = strtok(0, S);
+            }
+        }        
+    }
+    file.close();
+    file2.close();
     return 0;
 }
