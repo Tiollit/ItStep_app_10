@@ -10,9 +10,10 @@ int main()
 {
     fstream file;
     char inf[256];
+    char* nt = new char;
     string text;
     const char *S = "!?.,;/*-+\n\t";
-    char *word = 0;
+    char* word = 0;
     cout << "Insert Text to a File" << endl;
     gets_s(inf);
     file.open("file.txt", ios::out);
@@ -37,7 +38,8 @@ int main()
     {
         while (getline(file, text))
         {
-            word = strtok((char*)text.c_str(), S);
+            strcpy(nt, text.c_str());
+            word = strtok(nt, S);   //(char*)text.c_str()
             while (word)
             {
                 if (strlen(word) > 7)
