@@ -4,20 +4,22 @@
 using namespace std;
 int main()
 {
-    fstream file;
+    fstream file5, file6;
     string text;
-    file.open("file.txt", ios::in);
-    if (!file.is_open())
+    file5.open("file.txt", ios::in);
+    file6.open("file.txt", ios::out);
+    if (!file5.is_open())
     {
         perror("Log: ");
     }
     else
     {
-        while (getline(file, text))
+        while (getline(file5, text))
         {
-            cout << text << endl;
+            file6 << text << endl;
         }
-        file.close();
+        file5.close();
+        file6.close();
     }
     return 0;
 }
