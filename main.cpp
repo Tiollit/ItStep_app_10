@@ -11,8 +11,8 @@ int main()
     fstream file;
     char inf[256];
     char* nt = new char;
-    string text;
-    const char *S = "!?.,;/*-+\n\t";
+    char text[256];
+    //const char *S = "!?.,;/*-+\n\t";
     char* word = 0;
     cout << "Insert Text to a File" << endl;
     gets_s(inf);
@@ -30,25 +30,32 @@ int main()
     fstream file2;    
     file.open("file.txt", ios::in);
     file2.open("file2.txt", ios::out);
-    if (!file.is_open())
+    //if (!file.is_open())
+    //{
+    //    perror("Log: ");
+    //}
+    //else
+    //{
+    //    while (getline(file, text))
+    //    {
+    //        strcpy(nt, text.c_str());
+    //        word = strtok(nt, S);   //(char*)text.c_str()
+    //        while (word)
+    //        {
+    //            if (strlen(word) > 7)
+    //            {
+    //                file2 << word << " ";
+    //            }
+    //            word = strtok(0, S);
+    //        }
+    //    }        
+    //}
+    for (file >> text; !file.eof(); file >> text)
     {
-        perror("Log: ");
-    }
-    else
-    {
-        while (getline(file, text))
+        if (strlen(text) > 7)
         {
-            strcpy(nt, text.c_str());
-            word = strtok(nt, S);   //(char*)text.c_str()
-            while (word)
-            {
-                if (strlen(word) > 7)
-                {
-                    file2 << word << " ";
-                }
-                word = strtok(0, S);
-            }
-        }        
+            file2 << text << " ";
+        }
     }
     file.close();
     file2.close();
