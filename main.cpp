@@ -6,8 +6,8 @@ int main()
 {
     fstream file5, file6;
     string text;
-    file5.open("file.txt", ios::in);
-    file6.open("file.txt", ios::out);
+    file5.open("file5.txt", ios::in);
+    file6.open("file6.txt", ios::out);
     if (!file5.is_open())
     {
         perror("Log: ");
