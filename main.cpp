@@ -10,10 +10,10 @@ int main()
 {
     fstream file;
     char inf[256];
-    char* nt = new char;
+    //char* nt = new char;
     char text[256];
     //const char *S = "!?.,;/*-+\n\t";
-    char* word = 0;
+    //char* word = 0;
     cout << "Insert Text to a File" << endl;
     gets_s(inf);
     file.open("file.txt", ios::out);
