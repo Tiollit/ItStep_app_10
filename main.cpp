@@ -22,14 +22,14 @@ int main()
     {
         while (getline(file5, text))
         {
-            cout << text;
-            
-           
+            cout << text << endl;      
         }
+
         file5.seekg(0, ios_base::end);
         getline(file5, text);
-        
+        i = file5.tellg();
         file6 << text << endl;
+        
         file5.close();
         file6.close();
     }
