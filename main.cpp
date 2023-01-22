@@ -1,3 +1,4 @@
+#define _CRT_SECURE_NO_WARNINGS
 #include <iostream>
 #include <fstream>
 #include <string>
@@ -22,15 +23,12 @@ int main()
         while (getline(file5, text))
         {
             cout << text;
-            strcpy(nt, text.c_str());
-            A[i] = strlen(nt);
-            i += 1;
-            cout << " " << A[i];
+            
+           
         }
         file5.seekg(0, ios_base::end);
         getline(file5, text);
-        strcpy(nt, text.c_str());
-
+        
         file6 << text << endl;
         file5.close();
         file6.close();
