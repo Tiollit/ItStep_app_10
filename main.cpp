@@ -7,7 +7,8 @@ int main()
 {
     int position;
     fstream file5, file6;
-    string text;    
+    string text; 
+    char nt[255];
     file5.open("file5.txt", ios::in);
     file6.open("file6.txt", ios::out);  // Очищаємо старий файл
     file6.close();
@@ -22,8 +23,8 @@ int main()
         {
             cout << text << endl;
             position = file6.tellp();
-            strlen(text);
-            file6.seekp(0);
+            strcpy(nt, text.c_str());            
+            file6.seekp(position - strlen(nt));
             file6 << text << endl;
         }
         file5.close();
