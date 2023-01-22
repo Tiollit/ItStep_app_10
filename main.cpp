@@ -5,7 +5,8 @@
 using namespace std;
 int main()
 {
-    int p=0;
+    int p = 0, i = 0, A[5];
+    char nt[100];
     fstream file5, file6;
     string text;     
     file5.open("file5.txt", ios::in);
@@ -21,9 +22,15 @@ int main()
         while (getline(file5, text))
         {
             cout << text;
+            strcpy(nt, text.c_str());
+            A[i] = strlen(nt);
+            i += 1;
+            cout << " " << A[i];
         }
         file5.seekg(0, ios_base::end);
         getline(file5, text);
+        strcpy(nt, text.c_str());
+
         file6 << text << endl;
         file5.close();
         file6.close();
