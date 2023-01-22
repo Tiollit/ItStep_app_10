@@ -16,6 +16,7 @@ int main()
     {
         while (getline(file5, text))
         {
+            file6.seekg(0, ios_base:: beg);
             file6 << text << endl;
         }
         file5.close();
