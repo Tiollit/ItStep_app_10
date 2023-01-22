@@ -5,9 +5,9 @@ using namespace std;
 int main()
 {
     fstream file5, file6;
-    string text;
+    string text;    
     file5.open("file5.txt", ios::in);
-    file6.open("file6.txt", ios::out);
+    file6.open("file6.txt", ios::app);
     if (!file5.is_open())
     {
         perror("Log: ");
@@ -15,7 +15,7 @@ int main()
     else
     {
         while (getline(file5, text))
-        {
+        {           
             file6.seekg(0, ios_base:: beg);
             file6 << text << endl;
         }
