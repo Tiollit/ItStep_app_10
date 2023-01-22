@@ -5,10 +5,9 @@
 using namespace std;
 int main()
 {
-    int position;
+    int p=0;
     fstream file5, file6;
-    string text; 
-    char nt[255];
+    string text;     
     file5.open("file5.txt", ios::in);
     file6.open("file6.txt", ios::out);  // Очищаємо старий файл
     file6.close();
@@ -21,12 +20,11 @@ int main()
     {
         while (getline(file5, text))
         {
-            cout << text << endl;
-            position = file6.tellp();
-            strcpy(nt, text.c_str());            
-            file6.seekp(position - strlen(nt));
-            file6 << text << endl;
+            cout << text;
         }
+        file5.seekg(0, ios_base::end);
+        getline(file5, text);
+        file6 << text << endl;
         file5.close();
         file6.close();
     }
